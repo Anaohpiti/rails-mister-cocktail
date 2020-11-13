@@ -1,26 +1,19 @@
-<h1>Cocktails</h1>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">All our Cocktails</li>
+  </ol>
+</nav>
 
-<table>
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Details</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cocktails.each do |cocktail| %>
-      <tr>
-        <td><%= cocktail.id %></td>
-        <td><%= cocktail.name %></td>
+<div class="card-group">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card-product m-3">
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" %>
+      <div class="card-product-infos">
+        <h2><%=cocktail.name%></h2>
         <td><%= link_to 'See more details', cocktail_path(cocktail) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<br>
-
-<%= link_to 'New cocktail', new_cocktail_path %>
+<%= link_to 'New cocktail', new_cocktail_path, class:"btn btn-light" %>

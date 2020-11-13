@@ -1,16 +1,27 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), #url(https://blog.ubaldi.com/wp-content/uploads/2019/05/cocktails-blender.jpg);">
-  <div class="container">
-    <h1><%= @cocktail.name %></h1>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Cocktails", cocktails_path %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @cocktail.name %></li>
+  </ol>
+</nav>
+
+<div class="media">
+  <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg",class: "avatar-large" %>
+  <div class="media-body">
+    <h5 class="mt-2"><%= @cocktail.name %></h5>
     <% @cocktail.doses.each do |dose| %>
-    <div class="card-category">
-    <p> <%= dose.description%> - <%= dose.ingredient.name%> </p>
-    <%= link_to "Supprimer", dose_path(dose), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Are you sure ?" } %>
-    </div>
+      <div class="media mt-3">
+        <a class="pr-3" href="#">
+          <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg",class: "avatar" %>
+        </a>
+        <div class="media-body">
+          <h5 class="mt-0"><p> <%= dose.description%> - <%= dose.ingredient.name%> </p></h5>
+          <%= link_to "Supprimer", dose_path(dose), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Are you sure ?" } %>        </div>
+      </div>
     <% end %>
   </div>
 </div>
 
 <div class="container mt-4">
   <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary mb-4" %>
-  <%= link_to "Back to list", cocktails_path, class: "btn btn-primary mb-4" %>
 </div>
