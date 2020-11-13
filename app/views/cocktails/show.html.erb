@@ -5,23 +5,21 @@
   </ol>
 </nav>
 
-<div class="media">
-  <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg",class: "avatar-large" %>
+<div class="media p-2">
+  <%= image_tag "#{@cocktail.image}", class:"avatar" %>
   <div class="media-body">
     <h5 class="mt-2"><%= @cocktail.name %></h5>
     <% @cocktail.doses.each do |dose| %>
-      <div class="media mt-3">
+      <div class="media mt-3 p-2">
         <a class="pr-3" href="#">
           <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg",class: "avatar" %>
         </a>
         <div class="media-body">
           <h5 class="mt-0"><p> <%= dose.description%> - <%= dose.ingredient.name%> </p></h5>
-          <%= link_to "Supprimer", dose_path(dose), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Are you sure ?" } %>        </div>
+          <%= link_to "Supprimer", dose_path(dose), method: :delete, class: "btn btn-outline-danger btn-sm", data: { confirm: "Are you sure ?" } %>        </div>
       </div>
     <% end %>
   </div>
 </div>
 
-<div class="container mt-4">
-  <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary mb-4" %>
-</div>
+<%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-sm btn-outline-secondary m-2" %>
