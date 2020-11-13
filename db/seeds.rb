@@ -9,10 +9,10 @@ puts "cleaning ingredient seeds"
 Ingredient.destroy_all()
 
 puts "Creating 5 ingredient seeds"
-Ingredient.create!(name: "lemon")
-Ingredient.create!(name: "ice")
-Ingredient.create!(name: "mint leaves")
-Ingredient.create!(name: "Orange juice")
-Ingredient.create!(name: "Gin")
+Ingredient.create!(name: "lemon", image:"lemon.jpg")
+Ingredient.create!(name: "ice", image:"ice.jpg")
+Ingredient.create!(name: "mint leaves", image:"mint.jpg")
+Ingredient.create!(name: "Orange juice", image:"orange.jpg")
+Ingredient.create!(name: "ricard", image:"ricard.jpg")
 
 puts "Finished"
